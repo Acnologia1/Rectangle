@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1000" height="800">
+    <script>
+        //xay dung lop hcn
+        var Rectangle = function (length, width, color) {
+            this.length = length;
+            this.width = width;
+            this.color = color;
+
+            this.getColor = function () {
+                return color;
+            }
+            this.setColor = function (color) {
+                this.color = color;
+            }
+            this.getLength = function () {
+                return this.length;
+            }
+            this.setLength = function (length) {
+                this.length = length;
+            }
+            this.getWidth = function () {
+                return this.width;
+            }
+            this.setWidth = function (width) {
+                this.width = width;
+            }
+
+            // tinh dien tich
+            this.getArea = function () {
+                return this.length * this.width;
+            }
+            // tinh chu vi
+            this.getPerimeter = function () {
+                return (this.length + this.width) * 2;
+            }
+
+            // ve hcn
+            this.drawRectangle = function () {
+                var c = document.getElementById("myCanvas");
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = this.color;
+                ctx.fillRect(20, 20, this.length, this.width);
+                ctx.fill();
+            }
+        };
+        var rectangle = new Rectangle(900, 100, "#24ff62");
+        rectangle.setLength(300);
+        rectangle.setWidth(400);
+        var area = rectangle.getArea();
+        var perimeter = rectangle.getPerimeter();
+        //alert("Area :"+ area);
+        //alert("perimeter: " + perimeter);
+        rectangle.drawRectangle();
+
+
+    </script>
+</body>
+</html>
